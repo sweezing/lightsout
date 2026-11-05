@@ -1,0 +1,2 @@
+# Extra crisis-indicator phrases, one per line, lowercase. Loaded on top of DEFAULT_CRISIS in wordlists.py.
+# A match withholds the card and shows the poster support resources.

@@ -1,0 +1,2 @@
+# Extra blocked phrases, one per line, lowercase. Loaded on top of DEFAULT_BLOCKED in wordlists.py.
+# Maintained by the moderation owner. Review changes in a pull request.
