@@ -16,6 +16,7 @@ import { LiveClient } from "@/lib/live";
 import type { BBox, Card, LiveStatus, PostResult, ReportReason, SupportResource } from "@/lib/types";
 
 import CanvasView from "./CanvasView";
+import { CardMenuProvider } from "./CardMenuContext";
 import Composer, { Draft } from "./Composer";
 import FeedView from "./FeedView";
 import PromptBanner from "./PromptBanner";
@@ -385,6 +386,7 @@ export default function LightsOut() {
   const shown = view === "canvas" ? [...cards.values()].filter((c) => contains(visible, c.x, c.y)) : [];
 
   return (
+    <CardMenuProvider>
     <main className={`app app--${view}`}>
       <header className="topbar">
         <div className="brand">
@@ -492,6 +494,7 @@ export default function LightsOut() {
 
       {toast && <div className="toast" role="status">{toast}</div>}
     </main>
+    </CardMenuProvider>
   );
 }
 
