@@ -1,0 +1,5 @@
+# Always use Unix line endings, on every operating system.
+* text=auto eol=lf
+
+# Windows-only scripts would be the exception; we have none.
+*.sh text eol=lf
