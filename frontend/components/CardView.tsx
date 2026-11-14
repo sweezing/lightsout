@@ -7,6 +7,8 @@ import { memo, useState } from "react";
 
 import type { Card, ReportReason } from "@/lib/types";
 
+import { useCardMenu } from "./CardMenuContext";
+
 const REASONS: { value: ReportReason; label: string }[] = [
   { value: "harmful", label: "Harmful or abusive" },
   { value: "personal_info", label: "Shares personal information" },
@@ -44,7 +46,7 @@ function timeAgo(iso: string): string {
 }
 
 function CardView({ card, fresh, onReport, variant = "canvas" }: Props) {
-  const [menu, setMenu] = useState(false);
+  const [menu, toggleMenu] = useCardMenu(card.id);
   const feed = variant === "feed";
   const big = feed && !card.image && card.text.length <= BIG_TEXT_MAX;
 
@@ -65,7 +67,7 @@ function CardView({ card, fresh, onReport, variant = "canvas" }: Props) {
           className="card-more"
           aria-label="Report this card"
           aria-expanded={menu}
-          onClick={() => setMenu((m) => !m)}
+          onClick={toggleMenu}
         >
           ⋯
         </button>
@@ -77,7 +79,7 @@ function CardView({ card, fresh, onReport, variant = "canvas" }: Props) {
               key={r.value}
               role="menuitem"
               onClick={() => {
-                setMenu(false);
+                toggleMenu();
                 onReport(card.id, r.value);
               }}
             >

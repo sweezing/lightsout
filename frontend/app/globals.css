@@ -219,7 +219,7 @@ button { font: inherit; color: inherit; }
   border-radius: 18px; padding: 16px 16px 10px;
   transition: transform .15s ease, border-color .15s ease;
 }
-.card.card--feed:hover { transform: translateY(-2px); border-color: rgba(243,197,122,.28); }
+.card.card--feed:hover { transform: translateY(-2px); border-color: rgba(243,197,122,.28); z-index: 20; }
 .card.card--feed .card-image { max-height: none; border-radius: 12px; margin: -6px -6px 12px; width: calc(100% + 12px); }
 .card-text--big { font-size: 21px; line-height: 1.38; }
 /*quiet colour variety between pins; never a signal of anything. */
@@ -228,6 +228,7 @@ button { font: inherit; color: inherit; }
 .card--feed.tone-3 { background: #1d1a24; border-color: rgba(243,197,122,.2); }
 .card--feed.tone-4 { background: #171c2a; }
 .card.card--feed .report-menu { right: 6px; min-width: 200px; }
+
 @media (max-width: 640px) {
   .card.card--feed { padding: 13px 13px 8px; border-radius: 14px; }
   .card.card--feed .card-text { font-size: 15px; }
